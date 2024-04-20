@@ -1,0 +1,21 @@
+{{ block "index" . }}
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="/css/tailwind.css">
+        <title></title>
+    </head>
+    <body>
+        {{ template "input" . }}
+    </body>
+</html>
+{{ end }}
+
+{{ block "input" . }}
+<div class="flex flex-col min-h-screen space-y-4 justify-center items-center">
+    <h1 class="text-3xl text-blue-600 font-bold">Url shortener</h1>
+    <input type="text" for="url" id="url" placeholder="Enter your url here">
+</div>
+{{ end }}
