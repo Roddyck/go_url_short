@@ -44,6 +44,7 @@ func main() {
     e.Static("/css", "css")
 
     e.GET("/", handler.Index)
+    e.POST("/encode", handler.HandleEncode)
 
     e.Logger.Fatal(e.Start(":8080"))
 }
