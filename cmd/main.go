@@ -45,6 +45,7 @@ func main() {
 
     e.GET("/", handler.Index)
     e.POST("/encode", handler.HandleEncode)
+    e.GET("/:url", handler.HandleDecode)
 
     e.Logger.Fatal(e.Start(":8080"))
 }

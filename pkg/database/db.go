@@ -25,6 +25,16 @@ func InitDB(name string) error {
     return nil
 }
 
+func Count() (int64, error) {
+    var count int64
+    err := Db.QueryRow("SELECT COUNT(*) FROM urls").Scan(&count)
+    if err != nil {
+        return 0, err
+    }
+
+    return count, nil
+}
+
 func AddUrl(short, origin string) error {
     stmt, err := Db.Prepare("INSERT INTO urls (short_url, origin_url) VALUES ($1, $2)")
 
