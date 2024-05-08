@@ -1,0 +1,21 @@
+version: "3.8"
+
+services:
+  url-short:
+    build: . 
+    container_name: go-url-short
+    expose:
+      - "8080"
+    ports:
+      - "8080:8080"
+    depends_on: 
+      - go_postgres_db
+
+  go_postgres_db:
+    image: postgres:16.1
+    container_name: go_postgres_db
+    environment:
+      - POSTGRES_DB=postgres
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+
